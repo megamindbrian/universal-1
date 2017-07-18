@@ -1,0 +1,38 @@
+<div>
+    <md-input-container>
+        <input mdInput type="text" maxlength="50" name="firstName"
+               placeholder="{{ 'AUTH.REGISTERFORM.FIRST' | translate }}"
+               [(ngModel)]="registrationUser.firstName" required/>
+    </md-input-container>
+    <br/>
+    <md-input-container>
+        <input mdInput type="text" maxlength="50" name="lastName"
+               placeholder="{{ 'AUTH.REGISTERFORM.LAST' | translate }}"
+               [(ngModel)]="registrationUser.lastName" required/>
+    </md-input-container>
+    <br/>
+    <md-input-container *ngIf="!hideEmail">
+        <input mdInput type="email" maxlength="50" name="email"
+               placeholder="{{ 'AUTH.REGISTERFORM.EMAIL' | translate }}"
+               [(ngModel)]="registrationUser.email" required/>
+    </md-input-container>
+    <br *ngIf="!hideEmail"/>
+    <md-input-container>
+        <input mdInput type="password" maxlength="50" name="password"
+               placeholder="{{ 'AUTH.REGISTERFORM.PASSWORD' | translate }}"
+               [(ngModel)]="registrationUser.password" required/>
+    </md-input-container>
+    <br/>
+    <md-input-container>
+        <input mdInput type="tel" maxlength="25" length="40" name="phoneNumber"
+               placeholder="{{ 'AUTH.REGISTERFORM.PHONE' | translate }}"
+               [(ngModel)]="registrationUser.phoneNumber" required/>
+    </md-input-container>
+    <br/>
+    <md-input-container>
+        <input mdInput type="text" maxlength="25" length="40" name="companyName"
+               placeholder="{{ 'AUTH.REGISTERFORM.COMPANY' | translate }}"
+               [(ngModel)]="registrationUser.companyName"/>
+    </md-input-container>
+</div>
+
