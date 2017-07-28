@@ -1,0 +1,60 @@
+﻿<md-card class="contain">
+    <form>
+        <h3 *ngIf="router.url.indexOf('register') == -1 && !isRegister">
+            {{ 'AUTH.LOGIN.TITLE' | translate }}
+        </h3>
+        <h3 *ngIf="router.url.indexOf('register') > -1 || isRegister">
+            {{ 'AUTH.LOGIN.REGISTERTITLE' | translate }}
+        </h3>
+        <h4>{{ 'AUTH.LOGIN.SUBTITLE' | translate }}</h4>
+        <md-card-content>
+            <md-input-container *ngIf="isLogin">
+                <input mdInput name="signupEmail" required type="email"
+                       placeholder="{{ 'AUTH.LOGIN.EMAIL' | translate }}"
+                       maxlength="100" (keydown)="emailChanged.emit()" (keyup)="emailChanged.emit()"
+                       (invalid)="emailChanged.emit()" (change)="emailChanged.emit()"
+                       [(ngModel)]="authUser.name">
+            </md-input-container>
+            <br/>
+            <md-input-container [@dialog] *ngIf="isLogin">
+                <input mdInput name="signupPassword" required type="password" maxlength="25"
+                       placeholder="{{ 'AUTH.LOGIN.PASSWORD' | translate }}"
+                       length="40" [(ngModel)]="authUser.password">
+            </md-input-container>
+            <bc-register-form [@dialog] *ngIf="isRegister"
+                              [registrationUser]="registrationUser"></bc-register-form>
+        </md-card-content>
+        <md-card-actions>
+        <span class="alert alert-danger">
+            <span *ngIf="message === 'FORGOT'">{{'AUTH.LOGIN.ERRORFORGOT' | translate}}</span>
+            <span *ngIf="message === 'ALREADY'">{{'AUTH.LOGIN.ERRORALREADY' | translate}}</span>
+            <span *ngIf="message === 'PASSWORD'">{{'AUTH.LOGIN.ERRORPASSWORD' | translate}}</span>
+            <span *ngIf="message === 'INCORRECT'">{{'AUTH.LOGIN.ERRORINCORRECT' | translate}}</span>
+            <span *ngIf="message === 'INCOMPLETE'">{{'AUTH.LOGIN.ERRORINCOMPLETE' | translate}}</span>
+            <span *ngIf="message === 'REGISTERERROR'">{{'AUTH.LOGIN.ERRORREGISTER' | translate}}</span>
+            <span *ngIf="message === 'ERROR'">{{'AUTH.LOGIN.ERROR' | translate}}</span>
+            <span *ngIf="message === 'EMAIL'">{{'AUTH.LOGIN.ERROREMAIL' | translate}}</span>
+        </span>
+            <br/>
+            <button *ngIf="isLogin" md-raised-button color="primary"
+                    id="signupSubmit" type="submit" (click)="onLogin()">
+                {{ 'AUTH.LOGIN.LOGIN' | translate }}
+            </button>
+            <a *ngIf="isLogin" md-button routerLink="../register">
+                {{ 'AUTH.LOGIN.REGISTER' | translate }}</a><br/>
+            <a *ngIf="isLogin" md-button routerLink="/auth/forgot"> <i></i>
+                {{ 'AUTH.LOGIN.FORGOT' | translate }}</a>
+
+            <button *ngIf="isRegister" md-raised-button color="primary" (click)="onRegister()" type="submit">
+                {{ 'AUTH.LOGIN.REGISTERSUBMIT' | translate }}
+            </button>
+            <br/>
+            <a *ngIf="isRegister" md-button routerLink="../login">
+                {{ 'AUTH.LOGIN.ALREADY' | translate }}</a><br/>
+
+            <button md-raised-button *ngIf="!isLogin && !isRegister" (click)="dialog.closeAll()">
+                {{'AUTH.LOGIN.CANCEL' | translate}}
+            </button>
+        </md-card-actions>
+    </form>
+</md-card>
