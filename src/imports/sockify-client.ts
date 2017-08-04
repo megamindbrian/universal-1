@@ -1,19 +1,19 @@
-import * as automock from './automock';
+var automock = require('./automock.js');
 import { Observable } from 'rxjs/Observable';
+import * as client from 'socket.io-client';
 
-var client = require('socket.io-client');
-var subscriptions = {};
-export function sockifyClient(req, dep, host = window.location.origin) {
-    var socket = client.connect(host);
+const subscriptions = {};
+export function sockifyClient<T>(req: T, dep: string, host = window.location.origin): T {
+    const socket = client.connect(host);
     let ctx;
     ctx = automock.mockValue(req, {
-        stubCreator: (name) => {
+        stubCreator: (name: string) => {
             if (name.split('.').length === 1) {
                 return req;
             }
             return function () {
                 var args = [ 'call', name ];
-                for (var i = 0; i < arguments.length; i++) {
+                for (let i = 0; i < arguments.length; i++) {
                     args[ args.length ] = arguments[ i ];
                 }
                 if (typeof subscriptions[ dep ] === 'undefined') {
@@ -21,10 +21,10 @@ export function sockifyClient(req, dep, host = window.location.origin) {
                 }
 
                 return new Observable(observer => {
-                    socket.once('result', function (n) {
+                    socket.once('result', function (n: string) {
                         if (n === name) {
-                            var args2 = [];
-                            for (var i = 1; i < arguments.length; i++) {
+                            const args2 = [];
+                            for (let i = 1; i < arguments.length; i++) {
                                 args2[ args2.length ] = arguments[ i ];
                             }
                             console.log('Received ' + n + ' ( ' + JSON.stringify(args2[ 0 ]) + ' ) ');
@@ -40,7 +40,7 @@ export function sockifyClient(req, dep, host = window.location.origin) {
     socket.on('connect', function () {
         // TODO: socket.emit('handler') service provider
         socket.emit('handle', dep);
-        socket.on('resolve', function (name) {
+        socket.on('resolve', function (name: string) {
             var args = [];
             for (var i = 1; i < arguments.length; i++) {
                 args[ args.length ] = arguments[ i ];
@@ -53,3 +53,4 @@ export function sockifyClient(req, dep, host = window.location.origin) {
 };
 
 // TODO: output interactive angular component for controlling this server
+

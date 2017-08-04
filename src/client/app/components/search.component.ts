@@ -60,7 +60,6 @@ export const routing: ModuleWithProviders = RouterModule.forChild(authRoutes);
         ...COMMON_MODULES,
         routing
     ],
-    providers: [],
     declarations: COMPONENTS,
     exports: COMPONENTS
 })

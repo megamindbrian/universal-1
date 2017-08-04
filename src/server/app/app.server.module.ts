@@ -12,7 +12,6 @@ import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/
 // modules & components
 import { AppModule } from '../../client/app/app.module';
 import { AppComponent } from '../../client/app/app.component';
-import { SearchService } from '../../client/app/components/search.component';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -37,8 +36,7 @@ import { SearchService } from '../../client/app/components/search.component';
             }
         ]),
         AppModule
-    ],
-    providers: []
+    ]
 })
 export class AppServerModule {
     constructor(private readonly stateTransfer: StateTransferService,

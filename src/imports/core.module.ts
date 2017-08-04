@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule, PlatformLocation } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
     MdButtonModule, MdCardModule, MdCheckboxModule, MdDialogModule, MdIconModule, MdInputModule,
     MdMenuModule,
@@ -10,9 +10,8 @@ import {
     MdSidenavModule,
     MdToolbarModule, MdTooltipModule, OverlayModule
 } from '@angular/material';
-import { HttpModule } from '@angular/http';
+import { Http, HttpModule } from '@angular/http';
 import { PlatformModule } from '@angular/material';
-import { MockPlatformLocation } from './location.service';
 import { SearchService } from '../client/app/components/search.component';
 import { sockifyClient } from './sockify-client';
 
@@ -48,6 +47,10 @@ export const sharedModules: Array<any> = [
 
 export const SHARED_COMPONENTS: Array<any> = [];
 
+export function searchFactory(http: Http): SearchService {
+    return sockifyClient(new SearchService(http), 'SearchService', 'http://localhost:8098');
+}
+
 @NgModule({
     imports: [
         ...sharedModules
@@ -61,14 +64,9 @@ export class SharedModule {
             ngModule: SharedModule,
             providers: [
                 {
-                    provide: PlatformLocation,
-                    useClass: MockPlatformLocation,
-                    deps: []
-                },
-                {
                     provide: SearchService,
-                    useClass: sockifyClient(SearchService, 'SearchService', 'http://localhost:8098'),
-                    deps: []
+                    useFactory: searchFactory,
+                    deps: [ Http ]
                 }
             ]
         };
