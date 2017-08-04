@@ -11,40 +11,28 @@ import { TranslateService } from '@ngx-translate/core';
 import '../assets/sass/layout.scss';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent implements OnInit {
-  title: string;
+    title: string;
 
-  constructor(private readonly config: ConfigService,
-              private readonly translate: TranslateService,
-              private readonly meta: MetaService) { // ,
-              // private readonly i18nRouter: I18NRouterService) {
-  }
+    constructor(private readonly config: ConfigService,
+                private readonly translate: TranslateService,
+                private readonly meta: MetaService) { // ,
+        // private readonly i18nRouter: I18NRouterService) {
+    }
 
-  ngOnInit(): void {
-    this.title = 'ng-seed (universal) works!';
-    const defaultLanguage = this.config.getSettings('i18n.defaultLanguage');
+    ngOnInit(): void {
+        this.title = 'ng-seed (universal) works!';
+    }
 
-    // add available languages & set default language
-    this.translate.addLangs(this.config.getSettings('i18n.availableLanguages')
-      .map((language: any) => language.code));
-    this.translate.setDefaultLang(defaultLanguage.code);
+    private setLanguage(language: any): void {
+        this.translate.use(language.code).subscribe(() => {
+            this.meta.setTag('og:locale', language.culture);
+        });
 
-    this.meta.setTag('og:locale', defaultLanguage.culture);
-
-    // this.i18nRouter.init();
-
-    this.setLanguage(defaultLanguage);
-  }
-
-  private setLanguage(language: any): void {
-    this.translate.use(language.code).subscribe(() => {
-      this.meta.setTag('og:locale', language.culture);
-    });
-
-    // this.i18nRouter.changeLanguage(language.code);
-  }
+        // this.i18nRouter.changeLanguage(language.code);
+    }
 }
