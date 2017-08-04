@@ -98,7 +98,15 @@ module.exports = function (options, root, settings) {
         case 'development':
             return !!options.platform
                 ? options.platform === 'server'
-                    ? webpackConfig.universal.server.dev(root, settings)
+                    ? webpackMerge(webpackConfig.universal.server.dev(root, settings), {
+                        entry: {
+                            'render-service': root(`${settings.paths.src.server.root}/render-service.ts`),
+                            'server': root(`${settings.paths.src.server.root}/server.ts`)
+                        },
+                        output: {
+                            filename: '[name].js'
+                        }
+                    })
                     : webpackMerge(webpackConfig.universal.browser.dev(root, settings), browserConfig(root, settings))
                 : options.hmr
                     ? webpackMerge(webpackConfig.spa.hmr(root, settings), browserConfig(root, settings))
