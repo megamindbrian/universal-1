@@ -12,14 +12,6 @@ import { AppModule } from './app.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthService } from './auth/auth.service';
-import { PlatformLocation } from '@angular/common';
-import { LogService } from '../../imports/log.service';
-import { AuthManager } from './auth/auth.manager';
-import { JwtHelper } from 'angular2-jwt/angular2-jwt';
-import { MailgunValidatorService } from './auth/mailgun-validate.service';
-import { Http } from '@angular/http';
-;
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -40,21 +32,6 @@ import { Http } from '@angular/http';
             }
         ]),
         AppModule
-    ],
-    providers: [ AuthManager, JwtHelper, MailgunValidatorService,
-        {
-            provide: AuthService,
-            useFactory: (http: Http,
-                         log: LogService,
-                         authManager: AuthManager,
-                         mailgun: MailgunValidatorService) => require('./sockify-client')
-                .sockifyClient(new AuthService(http, log, authManager, mailgun), 'AuthService'),
-            deps: [ Http, LogService, AuthManager, MailgunValidatorService ]
-        },
-        {
-            provide: LogService,
-            useValue: require('./sockify-client').sockifyClient(new LogService(), 'LogService')
-        }
     ]
 })
 export class AppBrowserModule {

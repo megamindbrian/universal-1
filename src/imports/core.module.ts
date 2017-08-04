@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
@@ -30,10 +30,10 @@ export const materialModules = [
     MdMenuModule,
     MdTooltipModule,
     MdDialogModule,
-    MdProgressSpinnerModule,
+    MdProgressSpinnerModule
 ];
 
-export const sharedModules: any[] = [
+export const sharedModules: Array<any> = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -43,20 +43,20 @@ export const sharedModules: any[] = [
     ...materialModules
 ];
 
-export const SHARED_COMPONENTS: any[] = [];
+export const SHARED_COMPONENTS: Array<any> = [];
 
 @NgModule({
     imports: [
-        ...sharedModules,
+        ...sharedModules
     ],
     declarations: SHARED_COMPONENTS,
-    exports: SHARED_COMPONENTS,
+    exports: SHARED_COMPONENTS
 })
 export class SharedModule {
-    static forRoot() {
+    static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: <any[]>[]
+            providers: [] as Array<any>
         };
     }
 }
@@ -65,3 +65,4 @@ export const COMMON_MODULES = [
     ...sharedModules,
     SharedModule
 ];
+

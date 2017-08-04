@@ -13,12 +13,6 @@ import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/
 // modules & components
 import { AppModule } from '../../client/app/app.module';
 import { AppComponent } from '../../client/app/app.component';
-import { AuthService } from '../../client/app/auth/auth.service';
-import { LogService } from '../../imports/log.service';
-import { AuthManager } from '../../client/app/auth/auth.manager';
-import { JwtHelper } from 'angular2-jwt/angular2-jwt';
-import { MailgunValidatorService } from '../../client/app/auth/mailgun-validate.service';
-import { Http } from '@angular/http';
 
 export const LocalStorage = new InjectionToken<any>('localStorage');
 
@@ -33,14 +27,6 @@ export function bootstrapFactory(appRef: ApplicationRef,
             stateTransfer.set(cache.key, JSON.stringify(cache.dehydrate()));
             stateTransfer.inject();
         });
-}
-
-export function createAuthService(http: Http,
-                                  log: LogService,
-                                  authManager: AuthManager,
-                                  mailgun: MailgunValidatorService): AuthService {
-    return require('../sockify-server')
-        .sockifyRequire(new AuthService(http, log, authManager, mailgun), 'AuthService');
 }
 
 @NgModule({
@@ -68,16 +54,6 @@ export function createAuthService(http: Http,
         AppModule
     ],
     providers: [
-        {
-            provide: AuthService,
-            useFactory: createAuthService,
-            deps: [ Http, LogService, AuthManager, MailgunValidatorService ]
-        },
-        {
-            provide: LogService,
-            useValue: require('../sockify-server').sockifyRequire(new LogService(), 'LogService')
-        },
-        AuthManager, JwtHelper, MailgunValidatorService,
         {
             provide: LocalStorage,
             useValue: {

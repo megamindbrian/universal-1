@@ -15,9 +15,8 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import { AppServerModule } from './app/app.server.module';
 
 enableProdMode();
-export const server = express();
+const server = express();
 server.use(compression());
-
 
 /**
  * Set view engine

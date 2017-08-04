@@ -12,8 +12,12 @@ export const routes: Routes = [
         path: '',
         children: [
             {
-                path: 'auth',
-                loadChildren: './auth/auth.module#AuthModule'
+                path: 'search',
+                loadChildren: './components/search.component#SearchModule'
+            },
+            {
+                path: '**',
+                redirectTo: '/auth/login'
             }
         ],
         canActivateChild: [ MetaGuard ],
@@ -29,7 +33,6 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: '',
-        pathMatch: 'full'
+        redirectTo: '/auth/login'
     }
 ];
