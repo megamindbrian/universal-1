@@ -12,10 +12,12 @@ import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/
 // modules & components
 import { AppModule } from '../../client/app/app.module';
 import { AppComponent } from '../../client/app/app.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     bootstrap: [ AppComponent ],
     imports: [
+        NoopAnimationsModule,
         BrowserModule.withServerTransition({
             appId: 'my-app-id'
         }),

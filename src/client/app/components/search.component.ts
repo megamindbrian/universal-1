@@ -1,21 +1,7 @@
-import { Injectable } from '@angular/core';
 import { Component, ModuleWithProviders, NgModule } from '@angular/core';
 import { COMMON_MODULES } from '../../../imports/core.module';
-import { Observable } from 'rxjs/Observable';
 import { RouterModule, Routes } from '@angular/router';
-import { Http, Response } from '@angular/http';
-
-export let callbackUrl = 'localhost';
-
-@Injectable()
-export class SearchService {
-    constructor(public http: Http) {
-    }
-
-    search(query: string): Observable<Response> {
-        return this.http.post(callbackUrl, {query});
-    }
-}
+import { SearchService } from '../../../imports/search.service';
 
 @Component({
     selector: 'bc-search',
