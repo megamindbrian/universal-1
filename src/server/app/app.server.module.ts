@@ -12,39 +12,41 @@ import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/
 // modules & components
 import { AppModule } from '../../client/app/app.module';
 import { AppComponent } from '../../client/app/app.component';
+import { SearchService } from '../../client/app/components/search.component';
 
 @NgModule({
-  bootstrap: [AppComponent],
-  imports: [
-    BrowserModule.withServerTransition({
-      appId: 'my-app-id'
-    }),
-    ServerModule,
-    ServerStateTransferModule.forRoot(),
-    ServerCacheModule.forRoot([
-      {
-        provide: CACHE,
-        useClass: FsCacheService
-      },
-      {
-        provide: STORAGE,
-        useClass: FsStorageService
-      },
-      {
-        provide: FsStorageLoader,
-        useFactory: (fsStorageFactory)
-      }
-    ]),
-    AppModule
-  ]
+    bootstrap: [ AppComponent ],
+    imports: [
+        BrowserModule.withServerTransition({
+            appId: 'my-app-id'
+        }),
+        ServerModule,
+        ServerStateTransferModule.forRoot(),
+        ServerCacheModule.forRoot([
+            {
+                provide: CACHE,
+                useClass: FsCacheService
+            },
+            {
+                provide: STORAGE,
+                useClass: FsStorageService
+            },
+            {
+                provide: FsStorageLoader,
+                useFactory: (fsStorageFactory)
+            }
+        ]),
+        AppModule
+    ],
+    providers: []
 })
 export class AppServerModule {
-  constructor(private readonly stateTransfer: StateTransferService,
-              private readonly cache: CacheService) {
-  }
+    constructor(private readonly stateTransfer: StateTransferService,
+                private readonly cache: CacheService) {
+    }
 
-  ngOnBootstrap = () => {
-    this.stateTransfer.set(this.cache.key, JSON.stringify(this.cache.dehydrate()));
-    this.stateTransfer.inject();
-  }
+    ngOnBootstrap = () => {
+        this.stateTransfer.set(this.cache.key, JSON.stringify(this.cache.dehydrate()));
+        this.stateTransfer.inject();
+    };
 }

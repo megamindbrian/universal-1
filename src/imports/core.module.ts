@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, PlatformLocation } from '@angular/common';
 import {
     MdButtonModule, MdCardModule, MdCheckboxModule, MdDialogModule, MdIconModule, MdInputModule,
     MdMenuModule,
@@ -12,6 +12,9 @@ import {
 } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { PlatformModule } from '@angular/material';
+import { MockPlatformLocation } from './location.service';
+import { SearchService } from '../client/app/components/search.component';
+import { sockifyClient } from './sockify-client';
 
 // this is from MaterialModule which is deprecated
 export const materialModules = [
@@ -56,7 +59,18 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [] as Array<any>
+            providers: [
+                {
+                    provide: PlatformLocation,
+                    useClass: MockPlatformLocation,
+                    deps: []
+                },
+                {
+                    provide: SearchService,
+                    useClass: sockifyClient(SearchService, 'SearchService', 'http://localhost:8098'),
+                    deps: []
+                }
+            ]
         };
     }
 }

@@ -22,7 +22,7 @@ server.use(compression());
  * Set view engine
  */
 server.engine('html', ngExpressEngine({
-  bootstrap: AppServerModule
+    bootstrap: AppServerModule
 }));
 
 server.set('view engine', 'html');
@@ -37,10 +37,10 @@ server.use('/', express.static('public', {index: false}));
  * Catch all routes and return the `index.html`
  */
 server.get('*', (req, res) => {
-  res.render('../public/index.html', {
-    req,
-    res
-  });
+    res.render('../public/index.html', {
+        req,
+        res
+    });
 });
 
 /**
@@ -57,6 +57,6 @@ server.set('port', PORT);
  * Begin listening
  */
 server.listen(server.get('port'), () => {
-  // tslint:disable-next-line
-  console.log(`Express server listening on ${baseUrl}`);
+    // tslint:disable-next-line
+    console.log(`Express server listening on ${baseUrl}`);
 });

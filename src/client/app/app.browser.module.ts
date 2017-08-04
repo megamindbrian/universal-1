@@ -11,8 +11,6 @@ import { BrowserCacheModule, MemoryCacheService, STATE_ID } from '@ngx-cache/pla
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PlatformLocation } from '@angular/common';
-import { MockPlatformLocation } from '../../imports/location.service';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -33,13 +31,6 @@ import { MockPlatformLocation } from '../../imports/location.service';
             }
         ]),
         AppModule
-    ],
-    providers: [
-        {
-            provide: PlatformLocation,
-            useClass: MockPlatformLocation,
-            deps: []
-        }
     ]
 })
 export class AppBrowserModule {
