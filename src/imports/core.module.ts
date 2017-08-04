@@ -13,7 +13,7 @@ import {
 import { Http, HttpModule } from '@angular/http';
 import { PlatformModule } from '@angular/material';
 import { SearchService } from '../client/app/components/search.component';
-import { sockifyClient } from './sockify-client';
+import { sockifyClient } from './sockify-client.js';
 
 // this is from MaterialModule which is deprecated
 export const materialModules = [
