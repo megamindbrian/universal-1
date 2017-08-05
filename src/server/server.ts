@@ -13,6 +13,7 @@ import { ngExpressEngine } from '@ngx-universal/express-engine';
 
 // module
 import { AppServerModule } from './app/app.server.module';
+import { sockifyServer } from './sockify-server.js';
 
 enableProdMode();
 const server = express();
@@ -61,6 +62,5 @@ const listener = server.listen(server.get('port'), () => {
     console.log(`Express server listening on ${baseUrl}`);
 });
 
-//import { sockifyServer } from './sockify-server.js';
-//sockifyServer(listener);
+sockifyServer(listener);
 

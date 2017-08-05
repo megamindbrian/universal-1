@@ -3,7 +3,7 @@ var Observable = require('rxjs/Observable').Observable;
 var automock = require('../imports/automock');
 var server = require('socket.io');
 
-var deps = {}, io;
+var deps = {}, io = {};
 var sockifyRequire = function (req, dep) {
     if (typeof deps[dep] !== 'undefined') {
         return deps[dep];
@@ -48,6 +48,7 @@ var sockifyServer = function (port) {
     io = server.listen(port);
     var socketlist = [];
     io.sockets.on('connection', function (socket) {
+        console.log('Client connection');
         socketlist.push(socket);
         socket.on('call', function (name) {
             var args = [];
@@ -74,7 +75,10 @@ var sockifyServer = function (port) {
             });
         });
         socket.on('handle', function (dep) {
-            socket.join(dep);
+            console.log('Handler for ' + dep);
+            if (socket.rooms.indexOf(dep) === -1) {
+                socket.join(dep);
+            }
         });
         socket.on('close', function () {
             socketlist.splice(socketlist.indexOf(socket), 1);

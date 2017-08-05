@@ -16,10 +16,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '../../imports/core.module';
 import { SearchService } from '../../imports/search.service';
 import { Http } from '@angular/http';
-import { sockifyClient } from './sockify-client.js';
+import { sockifyRequire } from '../sockify-server.js';
 
 export function searchServerFactory(http: Http): SearchService {
-    return new SearchService(http);
+    return new (sockifyRequire(SearchService, 'SearchService'))(http);
 }
 
 @NgModule({

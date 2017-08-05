@@ -1,3 +1,4 @@
+'use strict';
 var Observable = require('rxjs/Observable').Observable;
 var automock = require('./automock');
 var client = require('socket.io-client');
