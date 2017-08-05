@@ -19,7 +19,11 @@
     },
     "exclude": [
         "bower_components",
-        "node_modules"
+        "node_modules",
+        ".idea",
+        ".server",
+        "public",
+        ".temp"
     ],
     "angularCompilerOptions": {
         "genDir": ".",

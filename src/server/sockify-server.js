@@ -76,7 +76,7 @@ var sockifyServer = function (port) {
         });
         socket.on('handle', function (dep) {
             console.log('Handler for ' + dep);
-            if (socket.rooms.indexOf(dep) === -1) {
+            if (!io.sockets.adapter.sids[socket.id][dep]) {
                 socket.join(dep);
             }
         });

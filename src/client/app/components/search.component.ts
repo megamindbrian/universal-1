@@ -15,6 +15,9 @@ import { SearchService } from '../../../imports/search.service';
         </form>
     `,
     styles: [ `
+        md-input-container {
+            width: 100%;
+        }
     ` ]
 })
 export class SearchComponent {
