@@ -56,8 +56,11 @@ server.set('port', PORT);
 /**
  * Begin listening
  */
-server.listen(server.get('port'), () => {
+const listener = server.listen(server.get('port'), () => {
     // tslint:disable-next-line
     console.log(`Express server listening on ${baseUrl}`);
 });
+
+//import { sockifyServer } from './sockify-server.js';
+//sockifyServer(listener);
 

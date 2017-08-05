@@ -13,6 +13,14 @@ import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/
 import { AppModule } from '../../client/app/app.module';
 import { AppComponent } from '../../client/app/app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from '../../imports/core.module';
+import { SearchService } from '../../imports/search.service';
+import { Http } from '@angular/http';
+import { sockifyClient } from './sockify-client.js';
+
+export function searchServerFactory(http: Http): SearchService {
+    return new SearchService(http);
+}
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -37,6 +45,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
                 useFactory: (fsStorageFactory)
             }
         ]),
+        SharedModule.forRoot(searchServerFactory),
         AppModule
     ]
 })

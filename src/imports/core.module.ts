@@ -13,7 +13,6 @@ import {
 import { Http, HttpModule } from '@angular/http';
 import { PlatformModule } from '@angular/material';
 import { SearchService } from './search.service';
-//import { sockifyClient } from './sockify-client';
 
 // this is from MaterialModule which is deprecated
 export const materialModules = [
@@ -47,11 +46,6 @@ export const sharedModules: Array<any> = [
 
 export const SHARED_COMPONENTS: Array<any> = [];
 
-export function searchFactory(http: Http): SearchService {
-    //return sockifyClient(new SearchService(http), 'SearchService', 'http://localhost:8098');
-    return new SearchService(http);
-}
-
 @NgModule({
     imports: [
         ...sharedModules
@@ -60,7 +54,7 @@ export function searchFactory(http: Http): SearchService {
     exports: SHARED_COMPONENTS
 })
 export class SharedModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(searchFactory: (http: Http) => SearchService): ModuleWithProviders {
         return {
             ngModule: SharedModule,
             providers: [

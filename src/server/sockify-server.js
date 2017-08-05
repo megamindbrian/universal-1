@@ -1,6 +1,7 @@
 'use strict';
 var Observable = require('rxjs/Observable').Observable;
 var automock = require('../imports/automock');
+var server = require('socket.io');
 
 var deps = {}, io;
 var sockifyRequire = function (req, dep) {
@@ -8,9 +9,8 @@ var sockifyRequire = function (req, dep) {
         return deps[dep];
     }
     console.log('Requiring ' + dep);
-    let ctx;
-    ctx = automock.mockValue(req, {
-        stubCreator: (name) => {
+    deps[dep] = automock.mockValue(req, {
+        stubCreator: function (name) {
             // don't call original
             if (name.split('.').length === 1) {
                 return req;
@@ -21,10 +21,12 @@ var sockifyRequire = function (req, dep) {
                 for (var i = 0; i < arguments.length; i++) {
                     args[args.length] = arguments[i];
                 }
-                return new Observable(observer => {
+                return new Observable(function (observer) {
                     var handlers = Object.keys(io.sockets.adapter.rooms[dep].sockets)
-                        .map(k => io.sockets.connected[k]);
-                    handlers.forEach(h => {
+                        .map(function (k) {
+                            return io.sockets.connected[k];
+                        });
+                    handlers.forEach(function (h) {
                         h.on('result', function (name) {
                             var args2 = [];
                             for (var i = 1; i < arguments.length; i++) {
@@ -39,12 +41,11 @@ var sockifyRequire = function (req, dep) {
         },
         name: dep
     });
-    deps[dep] = ctx;
-    return ctx;
-}
+    return deps[dep];
+};
 
-var sockifyServer = (port) => {
-    io = require('socket.io').listen(port);
+var sockifyServer = function (port) {
+    io = server.listen(port);
     var socketlist = [];
     io.sockets.on('connection', function (socket) {
         socketlist.push(socket);
@@ -87,7 +88,10 @@ var sockifyServer = (port) => {
 };
 sockifyServer;
 
-module.exports = {sockifyRequire, sockifyServer};
+module.exports = {
+    sockifyRequire: sockifyRequire,
+    sockifyServer: sockifyServer
+};
 
 
 // TODO: output interactive angular component for controlling this server

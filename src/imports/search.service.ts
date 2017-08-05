@@ -11,6 +11,7 @@ export class SearchService {
     }
 
     search(query: string): Observable<Response> {
+        console.log('Searching ' + query);
         return this.http.post(callbackUrl, {query});
     }
 }

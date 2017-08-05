@@ -13,6 +13,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlatformLocation } from '@angular/common';
 import { MockPlatformLocation } from '../../imports/location.service';
+import { SearchService } from '../../imports/search.service';
+import { Http } from '@angular/http';
+import { sockifyClient } from '../../imports/sockify-client.js';
+import { SharedModule } from '../../imports/core.module';
+
+export function searchClientFactory(http: Http): SearchService {
+    return new (sockifyClient(SearchService, 'SearchService', 'http://localhost:8098'))(http);
+}
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -32,6 +40,7 @@ import { MockPlatformLocation } from '../../imports/location.service';
                 useValue: DEFAULT_STATE_ID
             }
         ]),
+        SharedModule.forRoot(searchClientFactory),
         AppModule
     ],
     providers: [

@@ -81,7 +81,6 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
                 deps: [ PLATFORM_ID, Http ]
             }
         }),
-        SharedModule.forRoot(),
         ...sharedModules
     ],
     providers: [
