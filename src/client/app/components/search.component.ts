@@ -30,7 +30,7 @@ export class SearchComponent {
 
     search(): void {
         this.service.search(this.query).subscribe(r => {
-            console.log('searched ' + r);
+            console.log(r);
         });
     }
 }

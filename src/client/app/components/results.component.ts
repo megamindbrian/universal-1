@@ -23,9 +23,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.resultsSub = this.service.results(this.query).subscribe(r => {
-            console.log('hit');
-            console.log(r);
-            this.results = r as Array<any>;
+            this.results = [ (r as Array<any>)[ 0 ] ];
             this.ref.detectChanges();
         });
     }

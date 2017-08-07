@@ -25,7 +25,7 @@ var sockifyClient = function (req, dep, host) {
                 }
 
                 return new Observable(function (observer) {
-                    socket.once('result', function (n) {
+                    socket.on('result', function (n) {
                         if (n === name) {
                             var args2 = [];
                             for (var i = 1; i < arguments.length; i++) {
