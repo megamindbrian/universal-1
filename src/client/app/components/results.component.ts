@@ -6,11 +6,10 @@ import * as Prism from 'prismjs';
 @Component({
     selector: 'bc-results',
     template: `
-        <pre *ngFor="let r of results" [innerHTML]="highlight(r.code)">
+        <pre [class]="'language-'+(r.lang||'javascript')" *ngFor="let r of results" [innerHTML]="highlight(r.code)">
         </pre>
     `,
-    styles: [ `
-    ` ]
+    styleUrls: [ './results.component.scss' ]
 })
 export class ResultsComponent implements OnInit, OnDestroy {
     query = '';
