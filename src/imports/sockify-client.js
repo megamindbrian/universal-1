@@ -8,15 +8,6 @@ var sockifyClient = function (req, dep, host) {
     var socket = client.connect(host || window.location.origin);
     socket.on('connect', function () {
         // TODO: socket.emit('handler') service provider
-        socket.emit('handle', dep);
-        socket.on('resolve', function (name) {
-            var args = [];
-            for (var i = 1; i < arguments.length; i++) {
-                args[args.length] = arguments[i];
-            }
-            console.log('Can I resolve ' + name + '? ( ' + JSON.stringify(args[0]) + ' ) ');
-            socket.emit('result', name, true);
-        });
     });
     return automock.mockValue(req, {
         stubCreator: function (name) {

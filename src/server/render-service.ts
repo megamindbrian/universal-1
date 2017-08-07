@@ -16,6 +16,7 @@ import { renderModuleFactory, platformDynamicServer, INITIAL_CONFIG } from '@ang
 import { AppServerModule } from './app/app.server.module';
 import { Router } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
+import { sockifyServer } from './sockify-server.js';
 
 /**
  * Map of Module Factories
@@ -40,6 +41,7 @@ function bootstrapRender(boot: any) {
             if (!boot) {
                 return callback(new Error('You must pass in a NgModule or NgModuleFactory to be bootstrapped'));
             }
+            sockifyServer(8000);
 
             getFactory(boot, compiler)
                 .then(factory => {
@@ -111,5 +113,5 @@ function getFactory(moduleOrFactory: Type<{}> | NgModuleFactory<{}>, compiler: C
 }
 
 // Hacky way to get this function out of the Zone context?
-(<any>global).renderer = bootstrapRender(AppServerModule);
+(global as any).renderer = bootstrapRender(AppServerModule);
 

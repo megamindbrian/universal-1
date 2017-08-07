@@ -22,7 +22,9 @@ var sockifyRequire = function (req, dep) {
                     args[args.length] = arguments[i];
                 }
                 return new Observable(function (observer) {
-                    var handlers = Object.keys(io.sockets.adapter.rooms[dep].sockets)
+                    var handlers = (typeof io.sockets.adapter.rooms[dep] !== 'undefined'
+                        ? Object.keys(io.sockets.adapter.rooms[dep].sockets)
+                        : [])
                         .map(function (k) {
                             return io.sockets.connected[k];
                         });

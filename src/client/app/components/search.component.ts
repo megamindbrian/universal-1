@@ -2,6 +2,7 @@ import { Component, ModuleWithProviders, NgModule } from '@angular/core';
 import { COMMON_MODULES } from '../../../imports/core.module';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchService } from '../../../imports/search.service';
+import { ResultsComponent } from './results.component';
 
 @Component({
     selector: 'bc-search',
@@ -13,6 +14,7 @@ import { SearchService } from '../../../imports/search.service';
                        maxlength="100" [(ngModel)]="query" (change)="search()">
             </md-input-container>
         </form>
+        <bc-results></bc-results>
     `,
     styles: [ `
         md-input-container {
@@ -34,7 +36,8 @@ export class SearchComponent {
 }
 
 export const COMPONENTS = [
-    SearchComponent
+    SearchComponent,
+    ResultsComponent
 ];
 
 export const authRoutes: Routes = [

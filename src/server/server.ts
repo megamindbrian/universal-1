@@ -4,7 +4,7 @@ import 'reflect-metadata';
 import 'rxjs/Rx';
 
 // angular
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, InjectionToken } from '@angular/core';
 
 // libs
 import * as express from 'express';

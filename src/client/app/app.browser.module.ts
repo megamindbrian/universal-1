@@ -19,7 +19,10 @@ import { sockifyClient } from '../../imports/sockify-client.js';
 import { SharedModule } from '../../imports/core.module';
 
 export function searchClientFactory(http: Http): SearchService {
-    return new (sockifyClient(SearchService, 'SearchService'))(http);
+    return new (sockifyClient(
+        SearchService,
+        'SearchService',
+        (window as any).SOCKIFY_SERVER || 'http://localhost:8000'))(http);
 }
 
 @NgModule({
