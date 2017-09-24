@@ -9,13 +9,13 @@ export class SearchService {
     constructor(public http: Http) {
     }
 
-    search(query: string): Observable<number> {
+    search(query: string | Array<string>): Observable<number> {
         return this.http.post(callbackUrl, {query})
-            .map(r => r.json());
+                .map(r => r.json());
     }
 
-    results(query: string): Observable<Array<{ code: string, matches: Array<number> }>> {
+    results(query: string | Array<string>): Observable<Array<{ code: string, matches: Array<number> }>> {
         return this.http.post(callbackUrl, {query})
-            .map(r => r.json());
+                .map(r => r.json());
     }
 }

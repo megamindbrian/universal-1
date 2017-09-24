@@ -13,7 +13,7 @@ export const routes: Routes = [
         children: [
             {
                 path: 'search',
-                loadChildren: './components/search.component#SearchModule'
+                loadChildren: './components/search.module#SearchModule'
             }
         ],
         canActivateChild: [ MetaGuard ],

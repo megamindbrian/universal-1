@@ -50,7 +50,7 @@ server.get('*', (req, res) => {
 const port = 8000;
 const PORT = process.env.PORT || port;
 const HOST = process.env.BASE_URL || 'localhost';
-const baseUrl = `http://${HOST}:${PORT}`;
+const baseUrl = `https://${HOST}:${PORT}`;
 
 server.set('port', PORT);
 

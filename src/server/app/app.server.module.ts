@@ -42,7 +42,7 @@ export function searchServerFactory(http: Http): SearchService {
             },
             {
                 provide: FsStorageLoader,
-                useFactory: (fsStorageFactory)
+                useFactory: fsStorageFactory
             }
         ]),
         SharedModule.forRoot(searchServerFactory),

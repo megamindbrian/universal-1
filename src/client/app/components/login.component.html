@@ -1,0 +1,17 @@
+<form>
+    <md-input-container>
+        <input mdInput name="signupEmail" required type="email"
+               placeholder="Username"
+               maxlength="100" [(ngModel)]="username">
+    </md-input-container>
+    <br/>
+    <md-input-container>
+        <input mdInput name="signupPassword" required type="password" maxlength="25"
+               placeholder="Password"
+               length="40" [(ngModel)]="password">
+    </md-input-container>
+    <button md-raised-button color="primary"
+            id="signupSubmit" type="submit" (click)="onLogin()">
+        Login
+    </button>
+</form>

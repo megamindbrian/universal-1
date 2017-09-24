@@ -11,18 +11,19 @@ import { BrowserCacheModule, MemoryCacheService, STATE_ID } from '@ngx-cache/pla
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PlatformLocation } from '@angular/common';
+import { LocationStrategy, PlatformLocation } from '@angular/common';
 import { MockPlatformLocation } from '../../imports/location.service';
 import { SearchService } from '../../imports/search.service';
 import { Http } from '@angular/http';
 import { sockifyClient } from '../../imports/sockify-client.js';
 import { SharedModule } from '../../imports/core.module';
+import { HiddenLocationStrategy } from './hidden-location-strategy';
 
 export function searchClientFactory(http: Http): SearchService {
     return new (sockifyClient(
-        SearchService,
-        'SearchService',
-        (window as any).SOCKIFY_SERVER || 'http://localhost:8000'))(http);
+            SearchService,
+            'SearchService',
+            (window as any).SOCKIFY_SERVER || 'https://localhost:8000'))(http);
 }
 
 @NgModule({
@@ -41,6 +42,10 @@ export function searchClientFactory(http: Http): SearchService {
             {
                 provide: STATE_ID,
                 useValue: DEFAULT_STATE_ID
+            },
+            {
+                provide: LocationStrategy,
+                useClass: HiddenLocationStrategy
             }
         ]),
         SharedModule.forRoot(searchClientFactory),

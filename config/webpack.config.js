@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Webpack helpers & dependencies
  */
@@ -6,6 +7,7 @@ const webpackMerge = require('webpack-merge'),
 
 const copyWebpackPlugin = require('copy-webpack-plugin'),
     htmlElementsWebpackPlugin = require('html-elements-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const browserConfig = function (root, settings) {
     return {

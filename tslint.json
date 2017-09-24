@@ -1,33 +1,34 @@
 ﻿{
-  "rulesDirectory": [
-    "node_modules/codelyzer"
-  ],
-  "extends": [
-    "angular-tslint-rules"
-  ],
-  "rules": {
-    "directive-selector": [
-      true,
-      "attribute",
-      [
-        "app"
-      ],
-      "camelCase"
+    "rulesDirectory": [
+        "node_modules/codelyzer"
     ],
-    "component-selector": [
-      true,
-      "element",
-      [
-        "app",
-        "i18n"
-      ],
-      "kebab-case"
+    "extends": [
+        "angular-tslint-rules"
     ],
-    "use-view-encapsulation": false,
-    "pipe-naming": [
-      true,
-      "camelCase",
-      "kr"
-    ]
-  }
+    "rules": {
+        "curly": false,
+        "directive-selector": [
+            true,
+            "attribute",
+            [
+                "app"
+            ],
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            [
+                "app",
+                "i18n"
+            ],
+            "kebab-case"
+        ],
+        "use-view-encapsulation": false,
+        "pipe-naming": [
+            true,
+            "camelCase",
+            "kr"
+        ]
+    }
 }

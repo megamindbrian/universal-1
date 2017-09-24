@@ -1,31 +1,31 @@
-import { Component, ModuleWithProviders, NgModule } from '@angular/core';
-import { COMMON_MODULES } from '../../../imports/core.module';
-import { RouterModule, Routes } from '@angular/router';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { SearchService } from '../../../imports/search.service';
-import { ResultsComponent } from './results.component';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'bc-search',
-    template: `
-        <form>
-            <md-input-container>
-                <input mdInput name="search" required type="text"
-                       placeholder="Search"
-                       maxlength="100" [(ngModel)]="query" (change)="search()">
-            </md-input-container>
-        </form>
-        <bc-results></bc-results>
-    `,
-    styles: [ `
-        md-input-container {
-            width: 100%;
-        }
-    ` ]
+    templateUrl: './search.component.html',
+    styleUrls: [ './search.component.scss' ]
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit, OnDestroy {
+    index = 0;
+    results: Array<any> = [];
+    resultsSub: Subscription;
     query = '';
 
-    constructor(public service: SearchService) {
+    constructor(public service: SearchService,
+                public ref: ChangeDetectorRef) {
+    }
+
+    ngOnInit(): void {
+        this.resultsSub = this.service.results(this.query).subscribe(r => {
+            this.results = (r as Array<any>);
+            this.ref.detectChanges();
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.resultsSub.unsubscribe();
     }
 
     search(): void {
@@ -34,29 +34,3 @@ export class SearchComponent {
         });
     }
 }
-
-export const COMPONENTS = [
-    SearchComponent,
-    ResultsComponent
-];
-
-export const authRoutes: Routes = [
-    {
-        path: '',
-        component: SearchComponent,
-        data: {roles: [ 'anonymous', 'user' ]}
-    }
-];
-export const routing: ModuleWithProviders = RouterModule.forChild(authRoutes);
-
-@NgModule({
-    imports: [
-        ...COMMON_MODULES,
-        routing
-    ],
-    declarations: COMPONENTS,
-    exports: COMPONENTS
-})
-export class SearchModule {
-}
-

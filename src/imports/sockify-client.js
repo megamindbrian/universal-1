@@ -5,7 +5,7 @@ var client = require('socket.io-client');
 
 var subscriptions = {};
 var sockifyClient = function (req, dep, host) {
-    var socket = client.connect(host || window.location.origin);
+    var socket = client.connect(host || window.location.origin, {secure: host.match(/https/ig)});
     socket.on('connect', function () {
         // TODO: socket.emit('handler') service provider
     });

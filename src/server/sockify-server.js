@@ -36,6 +36,7 @@ var sockifyRequire = function (req, dep) {
         },
         name: dep
     });
+    console.log(deps);
     return deps[dep];
 };
 
@@ -74,6 +75,9 @@ var sockifyServer = function (port) {
             if (!io.sockets.adapter.sids[socket.id][name]) {
                 socket.join(name);
             }
+            console.log(props);
+            console.log(dep);
+            console.log(deps);
             var func = deps[dep];
             for (var j = 1; j < props.length; j++) {
                 func = func[props[j]];
@@ -85,11 +89,12 @@ var sockifyServer = function (port) {
             });
         });
 
-        socket.on('handle', function (dep) {
+        socket.on('handle', function (dep, cb) {
             console.log('Handler for ' + dep);
             if (!io.sockets.adapter.sids[socket.id][dep]) {
                 socket.join(dep);
             }
+            cb();
         });
 
         socket.on('close', function () {

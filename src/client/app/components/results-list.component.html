@@ -1,0 +1,7 @@
+<a md-button (click)="(index = i) && change.emit(i)" [class]="'language-'+(results[r]?.language||'javascript')"
+   [class.selected]="index == i"
+   *ngFor="let r of results; let i = index">
+    <span>{{ r.filename }}</span>
+    <span>{{ r.language }}</span>
+    <span>{{ getLineCount(r) }}</span>
+</a>

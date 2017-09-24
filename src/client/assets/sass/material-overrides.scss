@@ -1,0 +1,124 @@
+﻿@import './colors';
+
+& {
+
+    .collapsed .collapse-arrow {
+        transform: rotate(-90deg);
+    }
+
+    .collapse-arrow {
+        width: 0;
+        height: 0;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-top: 20px solid $secondary;
+        display: inline-block;
+        margin-left: 10px;
+        position: absolute;
+        left: 2px;
+        top: 50%;
+        margin-top: -10px;
+        transform: rotate(0);
+        transition: transform ease-in-out .5s;
+    }
+
+    .alert.alert-danger {
+        display: block;
+        padding: 15px 0;
+        color: $warning;
+    }
+
+    .alert.alert-danger:before {
+        content: "\00A0";
+    }
+
+    &, md-card, .mat-card, md-card.mat-card {
+        color: inherit;
+        font-family: inherit;
+        box-shadow: none !important;
+    }
+
+    .mat-sidenav-container {
+        background: $pure-white;
+        color: inherit;
+    }
+
+    .mat-card-subtitle {
+        color: inherit;
+        font-size: 18px;
+    }
+
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    a, .mat-raised-button {
+        color: $dark-gray;
+    }
+
+    a, .mat-raised-button, .mat-button, .mat-raised-button.mat-primary,
+    a.mat-raised-button {
+        text-decoration: none;
+        outline: none;
+        border-color: $secondary;
+        min-width: 0;
+    }
+
+    .mat-raised-button .mat-ripple {
+        border-radius: 25px;
+        font-weight: 700;
+        font-size: inherit;
+    }
+
+    .mat-raised-button {
+        border-radius: 25px;
+        border: 2px solid $light-gray;
+        padding: 2px 35px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        box-shadow: none !important;
+    }
+
+    .mat-button, .mat-card {
+        border-radius: 0;
+        box-shadow: none !important;
+    }
+
+    .mat-toolbar {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .contain {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        max-width: 1000px;
+    }
+
+    fieldset {
+        border: none;
+    }
+
+    .mat-input-infix {
+        width: 100%;
+    }
+
+    md-select, .mat-input-wrapper {
+        width: 100%;
+    }
+
+    md-select, .mat-input-container {
+        padding: 1px;
+        text-align: left;
+    }
+
+    .tricky-select .mat-input-underline {
+        display: none;
+    }
+
+}
+
+
+

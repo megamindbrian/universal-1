@@ -1,5 +1,5 @@
 // angular
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
 // libs
 import { ConfigService } from '@ngx-config/core';
@@ -16,6 +16,7 @@ import '../assets/sass/layout.scss';
     styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent implements OnInit {
+    @HostBinding('class.expanded') expanded = false;
     title: string;
 
     constructor(private readonly config: ConfigService,

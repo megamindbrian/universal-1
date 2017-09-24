@@ -1,0 +1,44 @@
+@import '../../assets/sass/colors';
+
+:host {
+
+}
+
+:host.results-wrapper {
+    overflow: auto;
+    max-width: 100%;
+}
+
+a {
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+a:hover {
+    background: $light-light-gray;
+}
+
+a .mat-button-wrapper {
+    display: flex;
+}
+
+a .mat-button-wrapper span:first-child {
+    overflow-wrap: break-all;
+    width: 100%;
+}
+
+:host {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a .mat-button-wrapper > span:nth-child(2),
+a .mat-button-wrapper > span:nth-child(3) {
+    width: 50%;
+    color: $dark-gray;
+}
+
+a .mat-button-wrapper > span:nth-child(3) {
+    text-align: right;
+}
