@@ -45,4 +45,3 @@ export const routing: ModuleWithProviders = RouterModule.forChild(authRoutes);
 })
 export class AuthModule {
 }
-

@@ -1,19 +1,24 @@
 // angular
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 // libs
 import { MetaGuard } from '@ngx-meta/core';
 
 // components
 import { ChangeLanguageComponent } from './change-language.component';
+import { ModuleWithProviders } from '@angular/core';
 
-export const routes: Routes = [
+export const appRoutes: Routes = [
     {
         path: '',
         children: [
             {
                 path: 'search',
                 loadChildren: './components/search.module#SearchModule'
+            },
+            {
+                path: 'recording',
+                loadChildren: './components/recording.module#RecordingModule'
             }
         ],
         canActivateChild: [ MetaGuard ],
@@ -33,3 +38,6 @@ export const routes: Routes = [
         pathMatch: 'full'
     }
 ];
+export const routing: ModuleWithProviders = RouterModule.forRoot(
+        appRoutes,
+        {initialNavigation: 'enabled', useHash: false});

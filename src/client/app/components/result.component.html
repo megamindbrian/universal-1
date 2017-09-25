@@ -1,2 +1,4 @@
-<pre [class]="'language-'+(results[index]?.language||'javascript')"
-     [innerHTML]="highlight(results[index]?.code)"></pre>
+<div class="jupytangular-result">
+    <pre [class]="'language-'+(selected?.language||'javascript')"
+         [innerHTML]="highlight(selected?.code)"></pre>
+</div>

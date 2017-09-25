@@ -1,0 +1,869 @@
+& {
+
+    .mat-h1, .mat-headline, .mat-typography h1 {
+        font: 400 24px/32px Roboto, "Helvetica Neue", sans-serif;
+        margin: 0 0 16px;
+    }
+
+    .mat-h2, .mat-title, .mat-typography h2 {
+        font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+        margin: 0 0 16px;
+    }
+
+    .mat-h3, .mat-subheading-2, .mat-typography h3 {
+        font: 400 16px/28px Roboto, "Helvetica Neue", sans-serif;
+        margin: 0 0 16px;
+    }
+
+    .mat-h4, .mat-subheading-1, .mat-typography h4 {
+        font: 400 15px/24px Roboto, "Helvetica Neue", sans-serif;
+        margin: 0 0 16px;
+    }
+
+    .mat-h5, .mat-typography h5 {
+        font-size: 11.62px;
+        font-weight: 400;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        line-height: 20px;
+        margin: 0 0 12px;
+    }
+
+    .mat-h6, .mat-typography h6 {
+        font-size: 9.38px;
+        font-weight: 400;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        line-height: 20px;
+        margin: 0 0 12px;
+    }
+
+    .mat-body-strong, .mat-body-2 {
+        font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-body, .mat-body-1, .mat-typography {
+        font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    }
+    .mat-body p, .mat-body-1 p, .mat-typography p {
+        margin: 0 0 12px;
+    }
+
+    .mat-small, .mat-caption {
+        font: 400 12px/20px Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-display-4, .mat-typography .mat-display-4 {
+        font: 300 112px/112px Roboto, "Helvetica Neue", sans-serif;
+        margin: 0 0 56px;
+        letter-spacing: -0.05em;
+    }
+
+    .mat-display-3, .mat-typography .mat-display-3 {
+        font: 400 56px/56px Roboto, "Helvetica Neue", sans-serif;
+        margin: 0 0 64px;
+        letter-spacing: -0.02em;
+    }
+
+    .mat-display-2, .mat-typography .mat-display-2 {
+        font: 400 45px/48px Roboto, "Helvetica Neue", sans-serif;
+        margin: 0 0 64px;
+        letter-spacing: -0.005em;
+    }
+
+    .mat-display-1, .mat-typography .mat-display-1 {
+        font: 400 34px/40px Roboto, "Helvetica Neue", sans-serif;
+        margin: 0 0 64px;
+    }
+
+    .mat-button, .mat-raised-button, .mat-icon-button {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .mat-button-toggle {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-card {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-card-title {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .mat-card-subtitle,
+    .mat-card-content,
+    .mat-card-header .mat-card-title {
+        font-size: 14px;
+    }
+
+    .mat-checkbox {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-checkbox-layout .mat-checkbox-label {
+        line-height: 24px;
+    }
+
+    .mat-chip:not(.mat-basic-chip) {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .mat-header-cell {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .mat-cell {
+        font-size: 14px;
+    }
+
+    .mat-calendar {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-calendar-body {
+        font-size: 13px;
+    }
+
+    .mat-calendar-body-label,
+    .mat-calendar-period-button {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .mat-calendar-table-header th {
+        font-size: 11px;
+        font-weight: 400;
+    }
+
+    .mat-dialog-title {
+        font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-grid-tile-header,
+    .mat-grid-tile-footer {
+        font-size: 14px;
+    }
+    .mat-grid-tile-header .mat-line,
+    .mat-grid-tile-footer .mat-line {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        box-sizing: border-box;
+    }
+    .mat-grid-tile-header .mat-line:nth-child(n+2),
+    .mat-grid-tile-footer .mat-line:nth-child(n+2) {
+        font-size: 12px;
+    }
+
+    .mat-input-container {
+        font: 400 inherit/1.125 Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-input-wrapper {
+        padding-bottom: 1.29688em;
+    }
+
+    .mat-input-prefix .mat-icon,
+    .mat-input-prefix .mat-datepicker-toggle,
+    .mat-input-suffix .mat-icon,
+    .mat-input-suffix .mat-datepicker-toggle {
+        font-size: 150%;
+    }
+
+    .mat-input-prefix .mat-icon-button,
+    .mat-input-suffix .mat-icon-button {
+        height: 1.5em;
+        width: 1.5em;
+    }
+    .mat-input-prefix .mat-icon-button .mat-icon,
+    .mat-input-suffix .mat-icon-button .mat-icon {
+        line-height: 1.5;
+    }
+
+    .mat-input-infix {
+        padding: 0.4375em 0;
+        border-top: 0.84375em solid transparent;
+    }
+
+    .mat-input-element:-webkit-autofill + .mat-input-placeholder-wrapper .mat-float {
+        transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.001px);
+        -ms-transform: translateY(-1.28125em) scale(0.75);
+        width: 133.33333%;
+    }
+
+    .mat-input-placeholder-wrapper {
+        top: -0.84375em;
+        padding-top: 0.84375em;
+    }
+
+    .mat-input-placeholder {
+        top: 1.28125em;
+    }
+    .mat-input-placeholder.mat-float:not(.mat-empty), .mat-focused .mat-input-placeholder.mat-float {
+        transform: translateY(-1.28125em) scale(0.75) perspective(100px) translateZ(0.001px);
+        -ms-transform: translateY(-1.28125em) scale(0.75);
+        width: 133.33333%;
+    }
+
+    .mat-input-underline {
+        bottom: 1.29688em;
+    }
+
+    .mat-input-subscript-wrapper {
+        font-size: 75%;
+        margin-top: 0.60417em;
+        top: calc(100% - 1.72917em);
+    }
+
+    .mat-menu-item {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 16px;
+    }
+
+    .mat-paginator {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 12px;
+    }
+
+    .mat-paginator-page-size .mat-select-trigger {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 12px;
+    }
+
+    .mat-radio-button {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-select {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-select-trigger {
+        font-size: 16px;
+    }
+
+    .mat-slide-toggle-content {
+        font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-slider-thumb-label-text {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .mat-tab-group {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-tab-label, .mat-tab-link {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .mat-toolbar,
+    .mat-toolbar h1,
+    .mat-toolbar h2,
+    .mat-toolbar h3,
+    .mat-toolbar h4,
+    .mat-toolbar h5,
+    .mat-toolbar h6 {
+        font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+        margin: 0;
+    }
+
+    .mat-tooltip {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 10px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .mat-list-item {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-list .mat-list-item, .mat-nav-list .mat-list-item {
+        font-size: 16px;
+    }
+    .mat-list .mat-list-item .mat-line, .mat-nav-list .mat-list-item .mat-line {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        box-sizing: border-box;
+    }
+    .mat-list .mat-list-item .mat-line:nth-child(n+2), .mat-nav-list .mat-list-item .mat-line:nth-child(n+2) {
+        font-size: 14px;
+    }
+
+    .mat-list .mat-subheader, .mat-nav-list .mat-subheader {
+        font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-list[dense] .mat-list-item, .mat-nav-list[dense] .mat-list-item {
+        font-size: 12px;
+    }
+    .mat-list[dense] .mat-list-item .mat-line, .mat-nav-list[dense] .mat-list-item .mat-line {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        box-sizing: border-box;
+    }
+    .mat-list[dense] .mat-list-item .mat-line:nth-child(n+2), .mat-nav-list[dense] .mat-list-item .mat-line:nth-child(n+2) {
+        font-size: 12px;
+    }
+
+    .mat-list[dense] .mat-subheader, .mat-nav-list[dense] .mat-subheader {
+        font: 500 12px Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-option {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 16px;
+    }
+
+    .mat-optgroup-label {
+        font: 500 14px/24px Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .mat-simple-snackbar {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        font-size: 14px;
+    }
+
+    .mat-simple-snackbar-action {
+        line-height: 1;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 500;
+    }
+
+    .mat-ripple {
+        overflow: hidden;
+    }
+
+    .mat-ripple.mat-ripple-unbounded {
+        overflow: visible;
+    }
+
+    .mat-ripple-element {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        transition: opacity, transform 0ms cubic-bezier(0, 0, 0.2, 1);
+        transform: scale(0);
+    }
+
+    .mat-option {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        line-height: 48px;
+        height: 48px;
+        padding: 0 16px;
+        text-align: left;
+        text-decoration: none;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+    }
+    .mat-option[disabled] {
+        cursor: default;
+    }
+    [dir='rtl'] .mat-option {
+        text-align: right;
+    }
+    .mat-option .mat-icon {
+        margin-right: 16px;
+    }
+    [dir='rtl'] .mat-option .mat-icon {
+        margin-left: 16px;
+        margin-right: 0;
+    }
+    .mat-option[aria-disabled='true'] {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+    }
+    .mat-optgroup .mat-option:not(.mat-option-multiple) {
+        padding-left: 32px;
+    }
+    [dir='rtl'] .mat-optgroup .mat-option:not(.mat-option-multiple) {
+        padding-left: 16px;
+        padding-right: 32px;
+    }
+
+    .mat-option-ripple {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+    }
+    @media screen and (-ms-high-contrast: active) {
+        .mat-option-ripple {
+            opacity: 0.5;
+        }
+    }
+
+    .mat-option-pseudo-checkbox {
+        margin-right: 8px;
+    }
+    [dir='rtl'] .mat-option-pseudo-checkbox {
+        margin-left: 8px;
+        margin-right: 0;
+    }
+
+    .mat-optgroup-label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        line-height: 48px;
+        height: 48px;
+        padding: 0 16px;
+        text-align: left;
+        text-decoration: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+    }
+    .mat-optgroup-label[disabled] {
+        cursor: default;
+    }
+    [dir='rtl'] .mat-optgroup-label {
+        text-align: right;
+    }
+    .mat-optgroup-label .mat-icon {
+        margin-right: 16px;
+    }
+    [dir='rtl'] .mat-optgroup-label .mat-icon {
+        margin-left: 16px;
+        margin-right: 0;
+    }
+
+    .cdk-visually-hidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        text-transform: none;
+        width: 1px;
+    }
+
+    .cdk-overlay-container, .cdk-global-overlay-wrapper {
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .cdk-overlay-container {
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .cdk-global-overlay-wrapper {
+        display: flex;
+        position: absolute;
+        z-index: 1000;
+    }
+
+    .cdk-overlay-pane {
+        position: absolute;
+        pointer-events: auto;
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    .cdk-overlay-backdrop {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        pointer-events: auto;
+        -webkit-tap-highlight-color: transparent;
+        transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+        opacity: 0;
+    }
+    .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+        opacity: 0.48;
+    }
+
+    .cdk-overlay-dark-backdrop {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .cdk-overlay-transparent-backdrop {
+        background: none;
+    }
+
+    .cdk-global-scrollblock {
+        position: fixed;
+        width: 100%;
+        overflow-y: scroll;
+    }
+
+    .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+        box-sizing: border-box;
+        position: relative;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        outline: 0;
+        border: none;
+        -webkit-tap-highlight-color: transparent;
+        display: inline-block;
+        white-space: nowrap;
+        text-decoration: none;
+        vertical-align: baseline;
+        text-align: center;
+        margin: 0;
+        min-width: 88px;
+        line-height: 36px;
+        padding: 0 16px;
+        border-radius: 2px
+    }
+
+    [disabled].mat-button, [disabled].mat-fab, [disabled].mat-icon-button, [disabled].mat-mini-fab, [disabled].mat-raised-button {
+        cursor: default
+    }
+
+    .cdk-keyboard-focused.mat-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay {
+        opacity: 1
+    }
+
+    .mat-button::-moz-focus-inner, .mat-fab::-moz-focus-inner, .mat-icon-button::-moz-focus-inner, .mat-mini-fab::-moz-focus-inner, .mat-raised-button::-moz-focus-inner {
+        border: 0
+    }
+
+    .mat-fab, .mat-mini-fab, .mat-raised-button {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        transform: translate3d(0, 0, 0);
+        transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .mat-fab:not([disabled]):active, .mat-mini-fab:not([disabled]):active, .mat-raised-button:not([disabled]):active {
+        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
+    }
+
+    [disabled].mat-fab, [disabled].mat-mini-fab, [disabled].mat-raised-button {
+        box-shadow: none
+    }
+
+    .mat-button .mat-button-focus-overlay, .mat-icon-button .mat-button-focus-overlay {
+        transition: none;
+        opacity: 0
+    }
+
+    .mat-button:hover .mat-button-focus-overlay {
+        opacity: 1
+    }
+
+    .mat-fab {
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+        min-width: 0;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        flex-shrink: 0
+    }
+
+    .mat-fab:not([disabled]):active {
+        box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
+    }
+
+    .mat-fab .mat-icon, .mat-fab i {
+        padding: 16px 0;
+        line-height: 24px
+    }
+
+    .mat-mini-fab {
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+        min-width: 0;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        flex-shrink: 0
+    }
+
+    .mat-mini-fab:not([disabled]):active {
+        box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
+    }
+
+    .mat-mini-fab .mat-icon, .mat-mini-fab i {
+        padding: 8px 0;
+        line-height: 24px
+    }
+
+    .mat-icon-button {
+        padding: 0;
+        min-width: 0;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        line-height: 40px;
+        border-radius: 50%
+    }
+
+    .mat-icon-button .mat-icon, .mat-icon-button i {
+        line-height: 24px
+    }
+
+    .mat-button, .mat-icon-button, .mat-raised-button {
+        color: currentColor
+    }
+
+    .mat-button .mat-button-wrapper > *, .mat-icon-button .mat-button-wrapper > *, .mat-raised-button .mat-button-wrapper > * {
+        vertical-align: middle
+    }
+
+    .mat-button-focus-overlay, .mat-button-ripple {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        pointer-events: none
+    }
+
+    .mat-button-focus-overlay {
+        background-color: rgba(0, 0, 0, .12);
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity .2s cubic-bezier(.35, 0, .25, 1), background-color .2s cubic-bezier(.35, 0, .25, 1)
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+        .mat-button-focus-overlay {
+            background-color: rgba(255, 255, 255, .5)
+        }
+    }
+
+    .mat-button-ripple-round {
+        border-radius: 50%;
+        z-index: 1
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+        .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
+            outline: solid 1px
+        }
+    }
+
+    .mat-input-container {
+        display: inline-block;
+        position: relative;
+        text-align: left
+    }
+
+    [dir=rtl] .mat-input-container {
+        text-align: right
+    }
+
+    .mat-input-wrapper {
+        position: relative
+    }
+
+    .mat-input-flex {
+        display: inline-flex;
+        align-items: baseline;
+        width: 100%
+    }
+
+    .mat-input-prefix, .mat-input-suffix {
+        white-space: nowrap;
+        flex: none
+    }
+
+    .mat-input-prefix .mat-datepicker-toggle, .mat-input-prefix .mat-icon, .mat-input-suffix .mat-datepicker-toggle, .mat-input-suffix .mat-icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: text-bottom
+    }
+
+    .mat-input-prefix .mat-icon-button, .mat-input-suffix .mat-icon-button {
+        font: inherit;
+        vertical-align: baseline
+    }
+
+    .mat-input-prefix .mat-icon-button .mat-icon, .mat-input-suffix .mat-icon-button .mat-icon {
+        font-size: inherit;
+        width: 1em;
+        height: 1em;
+        vertical-align: baseline
+    }
+
+    .mat-input-infix {
+        display: block;
+        position: relative;
+        flex: auto
+    }
+
+    .mat-input-element {
+        font: inherit;
+        background: 0 0;
+        color: currentColor;
+        border: none;
+        outline: 0;
+        padding: 0;
+        width: 100%;
+        vertical-align: bottom
+    }
+
+    .mat-input-element:-moz-ui-invalid {
+        box-shadow: none
+    }
+
+    .mat-input-element:-webkit-autofill + .mat-input-placeholder-wrapper .mat-input-placeholder {
+        display: none
+    }
+
+    .mat-input-element:-webkit-autofill + .mat-input-placeholder-wrapper .mat-float {
+        display: block;
+        transition: none
+    }
+
+    .mat-input-element::placeholder {
+        color: transparent !important
+    }
+
+    .mat-input-element::-moz-placeholder {
+        color: transparent !important
+    }
+
+    .mat-input-element::-webkit-input-placeholder {
+        color: transparent !important
+    }
+
+    .mat-input-element:-ms-input-placeholder {
+        color: transparent !important
+    }
+
+    .mat-input-placeholder-wrapper {
+        position: absolute;
+        left: 0;
+        box-sizing: content-box;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none
+    }
+
+    textarea.mat-input-element {
+        overflow: auto
+    }
+
+    .mat-input-placeholder {
+        position: absolute;
+        left: 0;
+        font: inherit;
+        pointer-events: none;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        transform: perspective(100px);
+        -ms-transform: none;
+        transform-origin: 0 0;
+        transition: transform .4s cubic-bezier(.25, .8, .25, 1), color .4s cubic-bezier(.25, .8, .25, 1), width .4s cubic-bezier(.25, .8, .25, 1);
+        display: none
+    }
+
+    .mat-focused .mat-input-placeholder.mat-float, .mat-input-placeholder.mat-empty, .mat-input-placeholder.mat-float:not(.mat-empty) {
+        display: block
+    }
+
+    [dir=rtl] .mat-input-placeholder {
+        transform-origin: 100% 0;
+        left: auto;
+        right: 0
+    }
+
+    .mat-input-placeholder:not(.mat-empty) {
+        transition: none
+    }
+
+    .mat-input-underline {
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        left: 0;
+    }
+
+    .mat-input-underline.mat-disabled {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, .26) 0, rgba(0, 0, 0, .26) 33%, transparent 0);
+        background-size: 4px 1px;
+        background-repeat: repeat-x;
+        background-position: 0;
+        background-color: transparent
+    }
+
+    .mat-input-underline .mat-input-ripple {
+        position: absolute;
+        height: 2px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform-origin: 50%;
+        transform: scaleX(.5);
+        visibility: hidden;
+        transition: background-color .3s cubic-bezier(.55, 0, .55, .2)
+    }
+
+    .mat-focused .mat-input-underline .mat-input-ripple, .mat-input-invalid .mat-input-underline .mat-input-ripple {
+        visibility: visible;
+        transform: scaleX(1);
+        transition: transform 150ms linear, background-color .3s cubic-bezier(.55, 0, .55, .2)
+    }
+
+    .mat-input-subscript-wrapper {
+        position: absolute;
+        width: 100%;
+        overflow: hidden
+    }
+
+    .mat-input-placeholder-wrapper .mat-datepicker-toggle, .mat-input-placeholder-wrapper .mat-icon, .mat-input-subscript-wrapper .mat-datepicker-toggle, .mat-input-subscript-wrapper .mat-icon {
+        width: 1em;
+        height: 1em;
+        font-size: inherit;
+        vertical-align: baseline
+    }
+
+    .mat-input-hint-wrapper {
+        display: flex
+    }
+
+    .mat-input-hint-spacer {
+        flex: 1 0 1em
+    }
+
+    .mat-input-error {
+        display: block
+    }
+
+}

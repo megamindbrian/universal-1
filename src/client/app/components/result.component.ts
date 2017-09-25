@@ -11,9 +11,7 @@ require('../../../../node_modules/prismjs/plugins/line-numbers/prism-line-number
     styleUrls: [ './result.component.scss' ]
 })
 export class ResultComponent implements OnInit, OnDestroy {
-    @Input() index = 0;
-    @Input() results: Array<any> = [];
-    query = '';
+    @Input() selected: any = {};
 
     constructor(public service: SearchService,
                 public ref: ChangeDetectorRef) {

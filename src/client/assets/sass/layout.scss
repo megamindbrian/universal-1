@@ -4,13 +4,13 @@
 
 @include mat-core();
 
-app-root.jupytangular {
-
+.jupytangular[class] {
+    @import './reset';
 }
 
-app-root {
-    @import './reset';
+.jupytangular[class] {
 
+    @import './reset-material-core';
     @import '~@angular/material/_theming';
     @include angular-material-theme($theme);
 
@@ -24,4 +24,27 @@ app-root {
     @include angular-material-typography($custom-typography);
 
     @import './material-overrides';
+
+    *, *:before, *:after {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    img, video, canvas, svg {
+        max-width: 100%;
+    }
+
+    small {
+        font-weight: 400;
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    input, button {
+        color: $dark-gray;
+    }
 }

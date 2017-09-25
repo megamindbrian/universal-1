@@ -1,7 +1,9 @@
-<a md-button (click)="(index = i) && change.emit(i)" [class]="'language-'+(results[r]?.language||'javascript')"
-   [class.selected]="index == i"
-   *ngFor="let r of results; let i = index">
-    <span>{{ r.filename }}</span>
-    <span>{{ r.language }}</span>
-    <span>{{ getLineCount(r) }}</span>
-</a>
+<div class="jupytangular-results-list">
+    <a md-button (click)="(selected=r) && change.emit(r)" [class]="'language-'+(r.language||'javascript')"
+       [class.selected]="selected == r"
+       *ngFor="let r of results">
+        <span>{{ getGeneralizedFilename(r.filename) }}</span>
+        <span>{{ r.language }}</span>
+        <span>{{ getLineCount(r) }}</span>
+    </a>
+</div>

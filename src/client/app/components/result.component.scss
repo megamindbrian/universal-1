@@ -1,6 +1,6 @@
 @import '../../assets/sass/colors.scss';
 
-/deep/ {
+:host .jupytangular-result /deep/ {
 
     @media print {
         code[class*="language-"],
@@ -48,15 +48,11 @@
     /* Code blocks */
     pre[class*="language-"] {
         padding: 0;
-        margin: 0 20px 0 0;
-        overflow: auto;
         display: block;
-        max-height: 100%;
     }
 
     :not(pre) > code[class*="language-"],
     pre[class*="language-"] {
-        background: $light-light-gray;
     }
 
     /* Inline code */

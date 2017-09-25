@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
     styleUrls: [ './search.component.scss' ]
 })
 export class SearchComponent implements OnInit, OnDestroy {
-    index = 0;
+    selected: any = {};
     results: Array<any> = [];
     resultsSub: Subscription;
     query = '';
@@ -20,12 +20,15 @@ export class SearchComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.resultsSub = this.service.results(this.query).subscribe(r => {
             this.results = (r as Array<any>);
+            this.selected = this.results[ 0 ];
             this.ref.detectChanges();
         });
     }
 
     ngOnDestroy(): void {
-        this.resultsSub.unsubscribe();
+        if (typeof this.resultsSub !== 'undefined') {
+            this.resultsSub.unsubscribe();
+        }
     }
 
     search(): void {

@@ -1,11 +1,15 @@
-<bc-result [index]="index" [results]="results"></bc-result>
-<form>
-    <md-input-container>
-        <input mdInput name="search" required type="text"
-               placeholder="Search"
-               maxlength="100" [(ngModel)]="query" (change)="search()">
-    </md-input-container>
-    <div class="results-wrapper">
-        <bc-results-list (change)="index=$event" [results]="results"></bc-results-list>
+<div class="jupytangular-search">
+    <div class="result-scroll">
+        <bc-result [selected]="selected"></bc-result>
     </div>
-</form>
+    <form>
+        <md-input-container>
+            <input mdInput name="search" required type="text"
+                   placeholder="Search" autocomplete="off"
+                   maxlength="100" [(ngModel)]="query" (change)="search()">
+        </md-input-container>
+        <div class="results-wrapper">
+            <bc-results-list (change)="selected=$event" [results]="results"></bc-results-list>
+        </div>
+    </form>
+</div>

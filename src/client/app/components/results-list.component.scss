@@ -1,44 +1,47 @@
 @import '../../assets/sass/colors';
 
-:host {
-
-}
-
-:host.results-wrapper {
-    overflow: auto;
-    max-width: 100%;
-}
-
-a {
-    padding: 10px;
-    cursor: pointer;
-    position: relative;
-}
-
-a:hover {
-    background: $light-light-gray;
-}
-
-a .mat-button-wrapper {
+:host .jupytangular-results-list {
     display: flex;
-}
+    flex-direction: column;
 
-a .mat-button-wrapper span:first-child {
-    overflow-wrap: break-all;
-    width: 100%;
-}
+    a {
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+    }
 
-:host {
-    display: flex;
-    flex-wrap: wrap;
-}
+    a:hover {
+        background: $light-light-gray;
+    }
 
-a .mat-button-wrapper > span:nth-child(2),
-a .mat-button-wrapper > span:nth-child(3) {
-    width: 50%;
-    color: $dark-gray;
-}
+    a /deep/ .mat-button-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-a .mat-button-wrapper > span:nth-child(3) {
-    text-align: right;
+    a /deep/ .mat-button-wrapper span:first-child {
+        overflow: hidden;
+        overflow-wrap: break-word;
+        width: 100%;
+    }
+
+    a /deep/ span {
+        width: 100%;
+        overflow-wrap: break-word;
+        flex-shrink: 0;
+    }
+
+    a.selected {
+        background: $light-light-gray;
+    }
+
+    a /deep/ .mat-button-wrapper > span:nth-child(2),
+    a /deep/ .mat-button-wrapper > span:nth-child(3) {
+        width: 50%;
+        color: $gray;
+    }
+
+    a /deep/ .mat-button-wrapper > span:nth-child(3) {
+        text-align: right;
+    }
 }

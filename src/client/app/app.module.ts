@@ -16,7 +16,7 @@ import { MetaLoader, MetaModule, MetaStaticLoader } from '@ngx-meta/core';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 
 // routes & components
-import { routes } from './app.routes';
+import { routing } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { SharedModule, sharedModules } from '../../imports/core.module';
@@ -31,8 +31,8 @@ export function configFactory(platformId: any, http: Http): ConfigLoader {
 
     const browserLoader = {
         loadSettings: () => Promise.resolve(
-            (typeof window !== 'undefined' ? window as any : {}).CONFIG
-            || {})
+                (typeof window !== 'undefined' ? window as any : {}).CONFIG
+                || {})
     } as ConfigHttpLoader;
 
     return new UniversalConfigLoader(platformId, serverLoader, browserLoader);
@@ -46,7 +46,7 @@ export function metaFactory(config: ConfigService, translate: TranslateService):
 export function translateFactory(platformId: any, http: Http): TranslateLoader {
     return {
         getTranslation: lang => Observable.of(
-            (typeof window !== 'undefined' ? (window as any) : {}).TRANSLATIONS)
+                (typeof window !== 'undefined' ? (window as any) : {}).TRANSLATIONS)
     } as TranslateLoader;
 }
 
@@ -54,7 +54,6 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
     imports: [
         BrowserModule,
         HttpTransferModule.forRoot(),
-        RouterModule.forRoot(routes, {initialNavigation: 'enabled', useHash: false}),
         HttpModule,
         CacheModule.forRoot(),
         ConfigModule.forRoot({
@@ -81,12 +80,13 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
                 deps: [ PLATFORM_ID, Http ]
             }
         }),
+        routing,
         ...sharedModules
     ],
     providers: [
         {
             provide: APP_BASE_HREF,
-            useValue: '/'
+            useValue: 'chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/public/'
         }
     ],
     declarations: [

@@ -1,0 +1,21 @@
+
+:host .record-wrapper {
+
+    display: flex;
+    flex-direction: column;
+
+    a {
+        padding: 5px;
+        font-size: 30px;
+        line-height: 30px;
+        z-index: 100;
+        height: 40px;
+        width: 40px;
+    }
+
+    .event-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+

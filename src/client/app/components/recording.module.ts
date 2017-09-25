@@ -1,24 +1,20 @@
-import { ResultComponent } from './result.component';
-import { SearchComponent } from './search.component';
-import { ResultsListComponent } from './results-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { COMMON_MODULES } from '../../../imports/core.module';
+import { RecordingComponent } from './recording.component';
 
 export const COMPONENTS = [
-    SearchComponent,
-    ResultComponent,
-    ResultsListComponent
+    RecordingComponent
 ];
 
-export const searchRoutes: Routes = [
+export const recordingRoutes: Routes = [
     {
         path: '',
-        component: SearchComponent,
+        component: RecordingComponent,
         data: {roles: [ 'anonymous', 'user' ]}
     }
 ];
-export const routing: ModuleWithProviders = RouterModule.forChild(searchRoutes);
+export const routing: ModuleWithProviders = RouterModule.forChild(recordingRoutes);
 
 @NgModule({
     imports: [
@@ -28,5 +24,5 @@ export const routing: ModuleWithProviders = RouterModule.forChild(searchRoutes);
     declarations: COMPONENTS,
     exports: COMPONENTS
 })
-export class SearchModule {
+export class RecordingModule {
 }
