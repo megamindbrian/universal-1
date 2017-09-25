@@ -25,11 +25,11 @@ export class AppComponent implements OnInit, OnDestroy {
     title: string;
     routerSub: Subscription;
 
-    constructor(private readonly config: ConfigService,
-                private readonly translate: TranslateService,
-                private readonly meta: MetaService,
-                private readonly router: Router,
-                private readonly ref: ChangeDetectorRef) { // ,
+    constructor(public config: ConfigService,
+                public translate: TranslateService,
+                public meta: MetaService,
+                public router: Router,
+                public ref: ChangeDetectorRef) { // ,
         // private readonly i18nRouter: I18NRouterService) {
     }
 
@@ -57,6 +57,13 @@ export class AppComponent implements OnInit, OnDestroy {
         }
     }
 
+    getNextRoute(): string {
+        const paths = this.router.config[ 0 ].children.map(r => r.path);
+        const i = paths.indexOf(this.router.url.split('/')[ 1 ]);
+
+        return paths[ i === paths.length - 1 ? 0 : (i + 1) ];
+    }
+
     private setLanguage(language: any): void {
         this.translate.use(language.code).subscribe(() => {
             this.meta.setTag('og:locale', language.culture);
@@ -64,4 +71,5 @@ export class AppComponent implements OnInit, OnDestroy {
 
         // this.i18nRouter.changeLanguage(language.code);
     }
+
 }

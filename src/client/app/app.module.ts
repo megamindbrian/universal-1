@@ -86,7 +86,7 @@ export function translateFactory(platformId: any, http: Http): TranslateLoader {
     providers: [
         {
             provide: APP_BASE_HREF,
-            useValue: 'chrome-extension://aapnijgdinlhnhlmodcfapnahmbfebeb/public/'
+            useValue: '/'
         }
     ],
     declarations: [

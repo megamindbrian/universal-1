@@ -1,4 +1,4 @@
 <div class="app-wrapper">
-    <a md-button routerLink="search" (click)="expanded=!expanded">👿</a>
+    <a md-button [routerLink]="[getNextRoute()]">👿</a>
     <router-outlet></router-outlet>
 </div>
