@@ -1,11 +1,10 @@
 <div class="record-wrapper">
     <header>
-        <a md-button (click)="recording=true">⏺️</a>
-        <a md-button (click)="recording=false">⏸</a>
+        <a md-button (click)="recording=true" *ngIf="!recording">⏺️</a>
+        <a md-button (click)="recording=false" *ngIf="recording">⏸</a>
     </header>
 
-    <pre class="event-wrapper">
-        <span *ngFor="let e of events">{{ e.label }}
-        </span>
-    </pre>
+    <div class="code-wrapper">
+        <pre class="event-wrapper" [innerHTML]="eventOutput"></pre>
+    </div>
 </div>

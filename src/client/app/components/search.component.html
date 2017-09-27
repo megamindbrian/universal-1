@@ -9,7 +9,7 @@
                    maxlength="100" [(ngModel)]="query" (change)="search()">
         </md-input-container>
         <div class="results-wrapper">
-            <bc-results-list (change)="selected=$event" [results]="results"></bc-results-list>
+            <bc-results-list (change)="selected=$event" [results]="results.slice(0, 5)"></bc-results-list>
         </div>
     </form>
 </div>

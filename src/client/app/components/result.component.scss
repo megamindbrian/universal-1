@@ -1,5 +1,6 @@
 @import '../../assets/sass/colors.scss';
 
+:host .record-wrapper /deep/,
 :host .jupytangular-result /deep/ {
 
     @media print {

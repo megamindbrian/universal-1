@@ -31,7 +31,7 @@ var sockifyClient = function (req, dep, host) {
                             for (var i = 1; i < arguments.length; i++) {
                                 args2[args2.length] = arguments[i];
                             }
-                            console.log('Received ' + n + ' ( ' + JSON.stringify(args2[0]) + ' ) ');
+                            console.log('Received ' + n + ' ( ' + JSON.stringify(args2[0]).substr(0, 200) + ' ) ');
                             observer.next.apply(observer, args2);
                         }
                     });
