@@ -2,7 +2,6 @@
 @import '../assets/sass/palette';
 
 :host .app-wrapper {
-    color: $dark-gray;
     font-size: 18px;
     text-rendering: geometricPrecision;
     font-family: 'Poppins', Arial, sans-serif;
@@ -10,8 +9,6 @@
     // TODO: Add material theme for the tri-color-wheel that updates the component immediately
     // TODO: Add wireframe theme from earlier jupytangular commits
 
-    background: white;
-    box-shadow: inset 0 0 60px rgba(0, 0, 0, .2);
     display: block;
     transition: ease-in-out .15s;
     overflow: hidden;
@@ -25,6 +22,16 @@
         font-size: 30px;
         line-height: 30px;
         z-index: 100;
+    }
+
+    & router-outlet /deep/ ~ * {
+        position: fixed;
+        height: 100%;
+        right: 0;
+        pointer-events: none;
+        background: white;
+        box-shadow: inset 0 0 60px rgba(0, 0, 0, .2);
+        color: $dark-gray;
     }
 }
 
@@ -45,12 +52,16 @@
     max-width: 40px;
 
     &.expanded {
-        opacity: 1;
-        max-height: 100%;
-        max-width: 100%;
+        opacity: 0.8;
     }
 
+    & router-outlet /deep/ ~ *:hover,
     &:hover, &:focus, &:active {
         opacity: 1;
+
+        & router-outlet /deep/ ~ *, & {
+            pointer-events: initial;
+        }
     }
+
 }

@@ -13,6 +13,10 @@ export const appRoutes: Routes = [
         path: '',
         children: [
             {
+                path: '',
+                children: []
+            },
+            {
                 path: 'search',
                 loadChildren: './components/search.module#SearchModule'
             },

@@ -76,6 +76,10 @@ export class RecordingComponent {
 
     constructor(public ref: ChangeDetectorRef) {
         this.eventOutput = this.highlight(this.events.map(e => e.label).join(''));
+
+        // TODO: create little indicators on the page using element to XPath with
+        //  all visible children showing their ids in the upper right-hand corner with pointer-events: none;
+        //  extra credit, make them twinkle slightly
     }
 
     @HostListener('document:click', [ '$event' ])
