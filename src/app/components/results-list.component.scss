@@ -1,0 +1,47 @@
+@import '../../assets/sass/colors';
+
+:host .jupytangular-results-list {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  a:hover {
+    background: $light-light-gray;
+  }
+
+  a /deep/ .mat-button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  a /deep/ .mat-button-wrapper span:first-child {
+    width: 100%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
+
+  a /deep/ span {
+    flex-shrink: 0;
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  a.selected {
+    background: $light-light-gray;
+  }
+
+  a /deep/ .mat-button-wrapper > span:nth-child(2),
+  a /deep/ .mat-button-wrapper > span:nth-child(3) {
+    width: 50%;
+    color: $gray;
+  }
+
+  a /deep/ .mat-button-wrapper > span:nth-child(3) {
+    text-align: right;
+  }
+}

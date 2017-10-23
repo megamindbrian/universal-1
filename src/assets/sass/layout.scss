@@ -1,0 +1,54 @@
+@import '../../../node_modules/@angular/material/theming';
+@import 'colors';
+@import 'palette';
+
+@include mat-core();
+
+.jupytangular[class] {
+    @import 'reset';
+}
+
+.jupytangular[class] {
+    @import 'reset-material-core';
+    @import '../../../node_modules/@angular/material/theming';
+    @import 'material-overrides';
+    @include angular-material-theme($theme);
+
+    $custom-typography: mat-typography-config(
+            $font-family: '"Ubuntu", Arial, sans-serif',
+            $headline: mat-typography-level(24px, 48px, 400),
+            $body-1: mat-typography-level(16px, 24px, 400),
+            $button: mat-typography-level(16px, 24px, 400)
+    );
+
+    @include angular-material-typography($custom-typography);
+
+    *,
+    *:before,
+    *:after {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        box-sizing: border-box;
+    }
+
+    img,
+    video,
+    canvas,
+    svg {
+        max-width: 100%;
+    }
+
+    small {
+        font-weight: 400;
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    input,
+    button {
+        color: $dark-gray;
+    }
+}
